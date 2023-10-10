@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
         path: path.resolve('./build'),
         filename: './static/js/bundle-[chunkhash].js',
         chunkFilename: './static/js/[chunkhash].js'
-      },
+    },
     target: "web",
     devServer: {
         port: "8080",
@@ -32,5 +33,8 @@ module.exports = {
                 use: 'babel-loader'
             }
         ]
-    }
+    },
+    plugins: [new HtmlWebpackPlugin({
+        template: './index.html'
+    })]
 }
