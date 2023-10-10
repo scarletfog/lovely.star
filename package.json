@@ -1,0 +1,47 @@
+{
+  "name": "lovely.star",
+  "version": "1.0.0",
+  "description": "A simple app with login",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server .",
+    "build": "Webpack .",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scarletfog/lovely.star.git"
+  },
+  "author": "Anna Cieślik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scarletfog/lovely.star/issues"
+  },
+  "homepage": "https://github.com/scarletfog/lovely.star#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/runtime": "^7.17.2",
+    "@types/react": "^18.2.27",
+    "@types/react-dom": "^18.2.12",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.3",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^26.1.0",
+    "typescript": "^5.2.2",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/preset-typescript": "^7.23.0",
+    "path": "^0.12.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
