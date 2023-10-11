@@ -1,10 +1,25 @@
 import React from "react";
+import { Routes, Route } from 'react-router-dom';
+import { ProtectedRoute } from "./routes/ProtectedRoute";
 
 const App = () => {
+  let isLogged = false;
   return (
-    <h1>
-      Hi!
-    </h1>
+    <Routes>
+      <Route path="/" element={<div>login</div>} />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute
+            redirectPath="/home"
+            isAllowed={!!isLogged}
+          >
+            <div>logged</div>
+          </ProtectedRoute>
+        }
+      />
+
+    </Routes>
   )
 }
 

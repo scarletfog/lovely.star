@@ -8,7 +8,7 @@ import {
 
 import App from './src/App';
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 const Root = () => {
   return (
