@@ -1,26 +1,32 @@
 import React from "react";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "./routes/ProtectedRoute";
+import { LoginPage } from "./components/pages/LoginPage/LoginPage";
+import { ThemeProvider } from "./providers/Theme";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const App = () => {
   let isLogged = false;
+  const queryClient = new QueryClient();
   return (
-    <Routes>
-      <Route path="/" element={<div>login</div>} />
-      <Route
-        path="/dashboard"
-        element={
-          <ProtectedRoute
-            redirectPath="/home"
-            isAllowed={!!isLogged}
-          >
-            <div>logged</div>
-          </ProtectedRoute>
-        }
-      />
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <ReactQueryDevtools />
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute redirectPath="/" isAllowed={!!isLogged}>
+                <div>logged</div>
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+};
 
-    </Routes>
-  )
-}
-
-export default App
+export default App;

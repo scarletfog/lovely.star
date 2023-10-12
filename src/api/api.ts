@@ -1,22 +1,29 @@
+import axios from "axios";
 
-import axios from 'axios';
+const ITEM_LIST_URL = "https://playground.tesonet.lt/v1/servers";
+const LOGIN_URL = "https://playground.tesonet.lt/v1/tokens";
 
-const ITEM_LIST = 'https://playground.tesonet.lt/v1/servers';
-const LOGIN = 'https://playground.tesonet.lt/v1/tokens';
-const token = 'dummyfornow'
-
-export const getList = (ke: string) => {
-  return axios.get(ITEM_LIST, {
+export const getList = (user: any) => {
+  return axios.get(ITEM_LIST_URL, {
     headers: {
-      Authorization: `Bearer ${token}`
-    }
+      Authorization: `Bearer ${user.token}`,
+    },
   });
 };
 
-export const getToken = (username: string, password: string) => {
-  return axios.post(LOGIN, {
-    username,
-    password
-  });
+export const loginUser = async (username: string, password: string): Promise<any> => {
+  const userData = { username, password };
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  axios
+    .post(LOGIN_URL, userData, config)
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
-
