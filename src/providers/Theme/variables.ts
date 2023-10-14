@@ -39,6 +39,20 @@ export const spacing = {
   lg: '1.5rem',
 } as const;
 
+export const colors = {
+  violetDream: '#C9B1FF',
+  pinkPuff: '#FFCAF2',
+  melon: '#FFB2B1',
+  bananaiceCream: '#FFF3AD',
+  teaGreen: '#BCFFBC',
+  blueWave: '#A2EDFF',
+  darkerWave: '#88def3',
+  incident: '#ff0051',
+  softBlack: '#0e1111',
+  snowBall: '#fdfcf9',
+  fluff: '#f1fcff'
+} as const;
+
 export const themeVariables = {
   primary: '#0dcbca',
   secondary: '#0f151b',
@@ -62,7 +76,8 @@ export const themeVariables = {
   borderRadius,
   fontSize,
   fontWeight,
-  lineHeight
+  lineHeight,
+  colors
 } as const;
 
 export const theme: TTheme = {
