@@ -15,9 +15,11 @@ module.exports = {
         static: ["./public"],
         open: true,
         hot: true,
-        liveReload: true
+        liveReload: true,
+        historyApiFallback: true
     },
     resolve: {
+        modules: ['src', 'node_modules'],
         extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
     },
     module: {
@@ -43,14 +45,14 @@ module.exports = {
             {
                 test: /\.(png|jpg|gif)$/i,
                 use: [
-                  {
-                    loader: 'url-loader',
-                    options: {
-                      limit: 8192,
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                        },
                     },
-                  },
                 ],
-              },
+            },
         ]
     },
     plugins: [new HtmlWebpackPlugin({

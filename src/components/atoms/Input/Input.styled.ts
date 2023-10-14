@@ -12,6 +12,7 @@ export const Input = styled.input<IInputProps>`
   border-radius: inherit;
   background: none;
   outline: none;
+
   &::placeholder {
     color: ${({ theme }) => theme.colors.melon};
     opacity: 1;
@@ -26,9 +27,10 @@ export const Input = styled.input<IInputProps>`
   }
 `;
 
-export const InputWrapper = styled.div<
-  Pick<IInputProps, 'elementSize' | 'hasError' | 'hasSuccess'>
->`
+export const InputWrapper = styled.div<{
+  $hasError?: boolean;
+  $hasSuccess?: boolean;
+}>`
   position: relative;
   border: 2px solid ${({ theme }) => theme.colors.fluff};
   background: ${({ theme }) => theme.colors.snowBall};
@@ -41,12 +43,14 @@ export const InputWrapper = styled.div<
     border: ${({ theme }) => `2px solid ${theme.colors.darkerWave}`};
   }
 
-  ${({ theme, hasError, hasSuccess }) => {
-    if (hasError) {
+  ${({ theme, $hasError, $hasSuccess }) => {
+    if ($hasError) {
       return css`
         border: 1px solid ${theme.colors.incident} !important;
       `;
-    } else if (hasSuccess) {
+    }
+
+    if ($hasSuccess) {
       return css`
         border: 1px solid ${theme.colors.teaGreen} !important;
       `;

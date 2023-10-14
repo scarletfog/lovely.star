@@ -14,6 +14,19 @@ export const getUser = (): UserData | undefined => {
   return user ? JSON.parse(user) : undefined;
 };
 
+export const getToken = (): UserData | undefined => {
+  try {
+    const v = localStorage.getItem(USER_LOCAL_STORAGE_KEY) || '';
+    const user = JSON.parse(v);
+
+    console.log('aaa')
+    console.log(user)
+    return user?.token;
+  } catch {
+    return undefined;
+  }
+};
+
 export const removeUser = (): void => {
   localStorage.removeItem(USER_LOCAL_STORAGE_KEY);
 };

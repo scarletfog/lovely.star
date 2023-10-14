@@ -2,8 +2,7 @@ import * as React from 'react';
 import { FC } from 'react';
 import { Controller } from 'react-hook-form';
 
-import { Input } from '../../atoms/Input';
-import { IInputProps } from '../../atoms/Input';
+import { IInputProps, Input } from 'components/atoms/Input';
 
 export const InputField: FC<IInputProps> = ({ name, type, placeholder }) => {
 
@@ -14,7 +13,7 @@ export const InputField: FC<IInputProps> = ({ name, type, placeholder }) => {
     }) => {
       return (
         <Input
-          hasError={Boolean(error)}
+          hasError={Boolean(error?.message)}
           error={error?.message}
           type={type}
           placeholder={placeholder}

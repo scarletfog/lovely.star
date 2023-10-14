@@ -10,7 +10,7 @@ interface LoginFormData {
   password: string;
 }
 
-const validateForm = (values: any) => {
+const validateForm = (values: LoginFormData) => {
   const errors: {
     username?: FieldError;
     password?: FieldError;
@@ -33,16 +33,13 @@ const validateForm = (values: any) => {
 export const LoginForm = () => {
   const formMethods = useForm<LoginFormData>({
     mode: "onSubmit",
-    defaultValues: {},
+    defaultValues: {
+      username: 'tesonet',
+      password: 'partyanimal'
+    },
     resolver: validateForm,
   });
 
-  const {
-    watch,
-    formState: { errors, ...rest },
-  } = formMethods;
-
-  const allFields = watch();
   const signIn = useSignIn();
 
   const onSubmit = async (data: LoginFormData, e: any) => {
@@ -67,7 +64,6 @@ export const LoginForm = () => {
                 <InputField
                   name="username"
                   placeholder="Username"
-                  error={errors.username ? errors.username.message : ""}
                 />
               </Styles.FormRow>
               <Styles.FormRow>
@@ -75,7 +71,6 @@ export const LoginForm = () => {
                   name="password"
                   placeholder="Password"
                   type="password"
-                  error={errors.password ? errors.password.message : ""}
                 />
               </Styles.FormRow>
               <Styles.FormRow>

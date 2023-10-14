@@ -19,15 +19,14 @@ export function useUser(): IUseUser {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
-    initialData: userLocalStorage.getUser,
+    initialData: userLocalStorage.getUser(),
     onError: () => {
       userLocalStorage.removeUser();
     },
   });
 
   useEffect(() => {
-    if (!user) userLocalStorage.removeUser();
-    else userLocalStorage.saveUser(user);
+    if (!user) { userLocalStorage.removeUser(); }
   }, [user]);
 
   return {
