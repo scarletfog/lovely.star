@@ -34,8 +34,8 @@ export const LoginForm = () => {
   const formMethods = useForm<LoginFormData>({
     mode: "onSubmit",
     defaultValues: {
-      username: 'tesonet',
-      password: 'partyanimal'
+      username: '',
+      password: '',
     },
     resolver: validateForm,
   });
@@ -56,7 +56,7 @@ export const LoginForm = () => {
   return (
     <>
       <FormProvider {...formMethods}>
-        <Styles.FormWrapper autoComplete="off" onSubmit={formMethods.handleSubmit(onSubmit)}>
+        <Styles.FormWrapper autoComplete="off" onSubmit={formMethods.handleSubmit(onSubmit)} data-testid="LoginForm">
           <Styles.ContentWrapper>
             <Styles.Heading>Sign In.</Styles.Heading>
             <Styles.InputsWrapper>
