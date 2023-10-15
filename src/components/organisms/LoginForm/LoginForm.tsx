@@ -5,7 +5,7 @@ import { Button } from "../../atoms/Button";
 import { InputField } from "../../molecules/InputField";
 import { useSignIn } from "../../../auth/useSignIn";
 import { Hint } from "../../atoms/Hint";
-import unicornHead from "../../../assets/images/unicorn3.svg";
+import unicornHead from "../../../assets/images/unicorn.svg";
 
 interface LoginFormData {
   username: string;

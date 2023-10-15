@@ -1,5 +1,6 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
+import { expect } from '@jest/globals';
 
 import { ThemeProvider } from "providers/Theme";
 

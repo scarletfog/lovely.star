@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A simple app with login",
   "main": "index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "start": "webpack-dev-server .",
     "build": "Webpack .",
