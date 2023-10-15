@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
-import { IInputProps } from './Input.component';
+import { IInputProps } from "./Input.component";
 
 export const Input = styled.input<IInputProps>`
   padding: 0 10px;
-  color: ${({ theme }) => theme.colors.softBlack};
+  color: ${({ theme }) => theme.colors.darkerWave};
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -14,16 +14,21 @@ export const Input = styled.input<IInputProps>`
   outline: none;
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.melon};
+    color: ${({ theme }) => theme.colors.violetDream};
+    font-weight: ${({ theme }) => theme.fontWeight.semiBold};
     opacity: 1;
   }
 
   &:-ms-input-placeholder {
     color: ${({ theme }) => theme.colors.melon};
+    font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+    opacity: 1;
   }
 
   &::-ms-input-placeholder {
     color: ${({ theme }) => theme.colors.melon};
+    font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+    opacity: 1;
   }
 `;
 
@@ -34,8 +39,8 @@ export const InputWrapper = styled.div<{
   position: relative;
   border: 2px solid ${({ theme }) => theme.colors.fluff};
   background: ${({ theme }) => theme.colors.snowBall};
-  filter: drop-shadow(0px 0px 5px #C9B1FF);
-  border-radius: 20px;
+  filter: drop-shadow(0px 0px 5px #c9b1ff);
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
   width: 100%;
   height: 40px;
 
@@ -56,5 +61,4 @@ export const InputWrapper = styled.div<{
       `;
     }
   }};
-
 `;

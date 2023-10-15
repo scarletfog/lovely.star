@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
     mode: "development",
-    entry: "./index.js",
+    entry: "./index.tsx",
     output: {
         path: path.resolve('./build'),
         filename: './static/js/bundle-[chunkhash].js',

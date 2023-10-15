@@ -4,16 +4,10 @@ import { DashboardLayout } from "components/layouts/DashboardLayout";
 import { ServersList } from "components/organisms/ServersList";
 
 const DashboardPage: FC = () => {
-  return <DashboardLayout>
-
-    <h1>
-
-      Dashboard
-    </h1>
+  return <DashboardLayout title="Main dashboard">
     <div>
       <ServersList />
     </div>
-
   </DashboardLayout>;
 };
 

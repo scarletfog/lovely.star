@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FormRow = styled.div`
   display: flex;
-  margin: 30px;
+  margin: 20px;
   flex-direction: column;
 `;
 
@@ -22,7 +22,7 @@ export const ContentWrapper = styled.div`
   background-size: cover;
   display: flex;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
   min-width: 25vw;
   height: 60vh;
   display: flex;
@@ -33,10 +33,10 @@ export const ContentWrapper = styled.div`
 export const InputsWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.snowBall};
   display: flex;
-  border-radius: 20px;
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
   width: 100%;
   height: 60%;
-  gap: 10px;
+  gap: 5px;
   flex-direction: column;
   margin-top: auto;
   div:last-of-type {

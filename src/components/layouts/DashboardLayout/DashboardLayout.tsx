@@ -1,20 +1,19 @@
-import * as React from 'react';
-import { FC } from 'react';
+import * as React from "react";
+import { FC } from "react";
 
-import { PageHeader } from 'components/organisms/PageHeader';
+import { PageHeader } from "components/organisms/PageHeader";
+import * as Styles from "./DashboardLayout.styled";
 
 interface IDashboardLayout {
-  children: React.ReactNode
+  children: React.ReactNode;
+  title?: string;
 }
 
-export const DashboardLayout: FC<IDashboardLayout> = ({ children }) => {
-  return <div>
-    <div>
-      <PageHeader />
-    </div>
-
-    <div>
-      {children}
-    </div>
-  </div>
+export const DashboardLayout: FC<IDashboardLayout> = ({ children, title }) => {
+  return (
+    <>
+      <PageHeader title={title} />
+      <Styles.DashboarContentWrapper>{children}</Styles.DashboarContentWrapper>
+    </>
+  );
 };
