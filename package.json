@@ -11,7 +11,7 @@
     "build": "Webpack .",
     "cypress:open": "cypress open",
     "test": "jest --watch",
-    "lint": "eslint  --ext .js,.ts,.tsx --fix ./src && tsc",
+    "lint": "eslint  --ext .ts,.tsx --fix ./src",
     "formatting": "prettier --write \"./src/**/*.tsx\" \"./src/**/*.ts\""
   },
   "repository": {

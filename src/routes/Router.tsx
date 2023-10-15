@@ -1,10 +1,18 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import { DASHBOARD_URL, LOGIN_URL } from "../constants/urls";
 import { ProtectedRoute } from "./ProtectedRoute";
 
-const Dashbaord = React.lazy(() => import("../components/pages/Dashboard/DashboardPage"));
-const LoginPage = React.lazy(() => import("../components/pages/LoginPage/LoginPage"));
+const Dashbaord = React.lazy(
+  () => import("../components/pages/Dashboard/DashboardPage"),
+);
+const LoginPage = React.lazy(
+  () => import("../components/pages/LoginPage/LoginPage"),
+);
 
 const router = createBrowserRouter([
   {
