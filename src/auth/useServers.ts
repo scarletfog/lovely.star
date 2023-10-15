@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { QUERY_KEY } from "../constants/queryKeys";
@@ -13,11 +13,14 @@ export const useServers = () => {
     refetchOnReconnect: false,
   });
 
-  const sortedServers = useMemo(() => sortByParams(data?.data || [], ['name', 'distance']), [data?.data])
+  const sortedServers = useMemo(
+    () => sortByParams(data?.data || [], ["name", "distance"]),
+    [data?.data],
+  );
 
   return {
     data: sortedServers,
     isLoading,
-    error
+    error,
   };
-}
+};

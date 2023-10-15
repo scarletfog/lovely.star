@@ -10,8 +10,8 @@ test("Hint component should render", () => {
   render(
     <ThemeProvider>
       <Hint>{testMessage}</Hint>
-    </ThemeProvider>
+    </ThemeProvider>,
   );
 
-  expect(screen.getByText(testMessage)).toBeTruthy()
+  expect(screen.getByText(testMessage)).toBeTruthy();
 });

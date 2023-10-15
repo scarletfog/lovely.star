@@ -31,5 +31,8 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "@typescript-eslint/no-explicit-any": "warn",
+        "react/display-name": "off",
+        "@typescript-eslint/ban-ts-comment": "warn"
     }
 }

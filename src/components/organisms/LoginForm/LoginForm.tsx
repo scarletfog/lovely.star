@@ -70,7 +70,11 @@ export const LoginForm = () => {
   return (
     <>
       <FormProvider {...formMethods}>
-        <Styles.FormWrapper autoComplete="off" onSubmit={formMethods.handleSubmit(onSubmit)} data-testid="LoginForm">
+        <Styles.FormWrapper
+          autoComplete="off"
+          onSubmit={formMethods.handleSubmit(onSubmit)}
+          data-testid="LoginForm"
+        >
           <Styles.ContentWrapper>
             <Styles.Heading>Sign In.</Styles.Heading>
             <Styles.InputsWrapper>
@@ -78,12 +82,18 @@ export const LoginForm = () => {
                 <InputField name="username" placeholder="Username" />
               </Styles.FormRow>
               <Styles.FormRow>
-                <InputField name="password" placeholder="Password" type="password" />
+                <InputField
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                />
               </Styles.FormRow>
               <Styles.FormRow>
                 <Button type="submit">Login</Button>
               </Styles.FormRow>
-              <Hint>{formMethods?.formState?.errors?.root?.serverCatch.message}</Hint>
+              <Hint>
+                {formMethods?.formState?.errors?.root?.serverCatch.message}
+              </Hint>
             </Styles.InputsWrapper>
           </Styles.ContentWrapper>
         </Styles.FormWrapper>

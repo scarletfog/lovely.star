@@ -20,4 +20,4 @@ export const useSignOut = (): IUseSignOut => {
   }, [navigate, queryClient]);
 
   return onSignOut;
-}
+};

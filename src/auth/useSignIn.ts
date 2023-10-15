@@ -1,4 +1,8 @@
-import { UseMutateFunction, useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+  UseMutateFunction,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { QUERY_KEY } from "../constants/queryKeys";
 import { DASHBOARD_URL } from "../constants/urls";
