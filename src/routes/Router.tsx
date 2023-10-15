@@ -1,5 +1,9 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import { DASHBOARD_URL, LOGIN_URL } from "../constants/urls";
 import { ProtectedRoute } from "./ProtectedRoute";
 
@@ -28,6 +32,10 @@ const router = createBrowserRouter([
         </React.Suspense>
       </ProtectedRoute>
     ),
+  },
+  {
+    path: "*",
+    element: <Navigate to={DASHBOARD_URL} replace />,
   },
 ]);
 

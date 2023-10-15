@@ -5,7 +5,7 @@ import * as userLocalStorage from "./localStorage";
 import { getList } from "../api/api";
 
 export interface User {
-  accessToken: string;
+  token: string;
   username: string;
 }
 
@@ -16,8 +16,11 @@ interface IUseUser {
 export function useUser(): IUseUser {
   const { data: user } = useQuery<User | null>(
     [QUERY_KEY.user],
-    //@ts-expect-error
-    async (): Promise<User | null> => getList(user),
+
+    async (): Promise<User | null> => {
+      await getList();
+      return userLocalStorage.getUser() || null;
+    },
     {
       refetchOnMount: false,
       refetchOnWindowFocus: false,
