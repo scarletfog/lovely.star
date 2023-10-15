@@ -1,4 +1,5 @@
 import { sortByParams } from "./sort";
+import { expect } from '@jest/globals';
 
 interface ITestInterface {
   age: number;
