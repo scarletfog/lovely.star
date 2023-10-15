@@ -1,5 +1,18 @@
 describe('login', () => {
+  before(() => {
+    // intercept first login request
+    cy.intercept({ method: 'POST', url: 'https://playground.tesonet.lt/v1/tokens', times: 1 }, (req) => {
+      req.reply({
+        statusCode: 401,
+        body: {
+          message: 'Unauthorized'
+        }
+      })
+    }).as('loginRequest')
+  })
+
   it('should login and logout', () => {
+
     cy.visit('/');
     cy.url().should('contain', '/login');
 
@@ -22,6 +35,13 @@ describe('login', () => {
       passwordInput.type(Cypress.env('PWD'));
       cy.contains('Password cannot be blank').should('not.exist');
 
+      // intercepted response
+      submitButton.click();
+
+      cy.wait('@loginRequest')
+      cy.contains('Incorrect credentials').should('be.visible');
+
+      // retry
       submitButton.click();
     })
 
