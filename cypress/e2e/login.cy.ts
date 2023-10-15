@@ -26,9 +26,9 @@ describe('login', () => {
     })
 
     cy.url().should('not.include', '/login');
-    
+
     cy.contains('Sign out').click()
-    
+
     cy.url().should('include', '/login');
 
   })

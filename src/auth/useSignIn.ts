@@ -20,24 +20,23 @@ export const useSignIn = (): IUseSignIn => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  const { mutate: signInMutation } = useMutation<UserData, unknown, { username: string; password: string }, unknown>(
-    ({ username, password }) => loginUser(username, password),
-    {
-      onSuccess: (data, variables) => {
-        queryClient.setQueryData([QUERY_KEY.user], data);
+  const { mutateAsync: signInMutation } = useMutation<
+    UserData,
+    unknown,
+    { username: string; password: string },
+    unknown
+  >(({ username, password }) => loginUser(username, password), {
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData([QUERY_KEY.user], data);
 
-        const saveData = data
-        saveData.username = variables.username;
+      const saveData = data;
+      saveData.username = variables.username;
 
-        saveUser(saveData);
+      saveUser(saveData);
 
-        navigate(DASHBOARD_URL);
-      },
-      onError: (error) => {
-        console.log(error);
-      },
-    }
-  );
+      navigate(DASHBOARD_URL);
+    },
+  });
 
   return signInMutation;
 };
