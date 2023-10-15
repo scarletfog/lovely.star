@@ -1,14 +1,10 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import { DASHBOARD_URL, LOGIN_URL } from "../constants/urls";
 import { ProtectedRoute } from "./ProtectedRoute";
 
-const Dashbaord = React.lazy(
-  () => import("../components/pages/Dashboard/DashboardPage"),
-);
-const LoginPage = React.lazy(
-  () => import("../components/pages/LoginPage/LoginPage"),
-);
+const Dashbaord = React.lazy(() => import("../components/pages/Dashboard/DashboardPage"));
+const LoginPage = React.lazy(() => import("../components/pages/LoginPage/LoginPage"));
 
 const router = createBrowserRouter([
   {
@@ -28,6 +24,10 @@ const router = createBrowserRouter([
         </React.Suspense>
       </ProtectedRoute>
     ),
+  },
+  {
+    path: "*",
+    element: <Navigate to={DASHBOARD_URL} replace />,
   },
 ]);
 
