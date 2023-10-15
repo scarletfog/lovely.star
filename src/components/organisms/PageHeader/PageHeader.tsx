@@ -7,7 +7,7 @@ import * as Styles from "./PageHeader.styled";
 
 type PageHeader = {
   title?: string;
-}
+};
 
 export const PageHeader = ({ title }: PageHeader) => {
   const signOut = useSignOut();
@@ -22,7 +22,11 @@ export const PageHeader = ({ title }: PageHeader) => {
     <>
       <Styles.HeaderWrapper>
         <Styles.Title>{title}</Styles.Title>
-        <Styles.Action><Button onClick={handleClickSignOut} type="button">Sign out</Button></Styles.Action>
+        <Styles.Action>
+          <Button onClick={handleClickSignOut} type="button">
+            Sign out
+          </Button>
+        </Styles.Action>
       </Styles.HeaderWrapper>
     </>
   );

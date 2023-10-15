@@ -1,3 +1,3 @@
-import { HintStyled } from './Hint.styled';
+import { HintStyled } from "./Hint.styled";
 
 export const Hint = HintStyled;

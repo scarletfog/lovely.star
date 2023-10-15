@@ -7,7 +7,10 @@ interface ProtectedRouteProps {
   children?: React.ReactNode;
 }
 
-export const ProtectedRoute = ({ redirectPath = "/", children }: ProtectedRouteProps) => {
+export const ProtectedRoute = ({
+  redirectPath = "/",
+  children,
+}: ProtectedRouteProps) => {
   const { user } = useUser();
 
   if (!user) {

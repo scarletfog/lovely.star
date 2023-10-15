@@ -1,4 +1,4 @@
 export const QUERY_KEY = {
-  user: 'user',
-  servers: 'servers',
+  user: "user",
+  servers: "servers",
 };

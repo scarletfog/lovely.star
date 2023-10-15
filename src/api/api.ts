@@ -45,13 +45,11 @@ export const getList = () => {
   return axiosProtected.get<IServerResponse[]>(ITEM_LIST_URL);
 };
 
-export const loginUser = async (username: string, password: string): Promise<any> => {
+export const loginUser = async (
+  username: string,
+  password: string,
+): Promise<any> => {
   const userData = { username, password };
 
-  return axiosPublic
-    .post(LOGIN_URL, userData)
-    .then((res) => res.data)
-    // .catch((err) => {
-    //   console.log(err);
-    // });
+  return axiosPublic.post(LOGIN_URL, userData).then((res) => res.data);
 };

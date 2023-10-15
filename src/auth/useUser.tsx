@@ -14,19 +14,25 @@ interface IUseUser {
 }
 
 export function useUser(): IUseUser {
-  // @ts-ignore
-  const { data: user } = useQuery<User | null>([QUERY_KEY.user], async (): Promise<User | null> => getList(user), {
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-    refetchOnReconnect: false,
-    initialData: userLocalStorage.getUser(),
-    onError: () => {
-      userLocalStorage.removeUser();
+  const { data: user } = useQuery<User | null>(
+    [QUERY_KEY.user],
+    //@ts-expect-error
+    async (): Promise<User | null> => getList(user),
+    {
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      initialData: userLocalStorage.getUser(),
+      onError: () => {
+        userLocalStorage.removeUser();
+      },
     },
-  });
+  );
 
   useEffect(() => {
-    if (!user) { userLocalStorage.removeUser(); }
+    if (!user) {
+      userLocalStorage.removeUser();
+    }
   }, [user]);
 
   return {

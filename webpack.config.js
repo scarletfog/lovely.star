@@ -7,7 +7,8 @@ module.exports = {
     output: {
         path: path.resolve('./build'),
         filename: './static/js/bundle-[chunkhash].js',
-        chunkFilename: './static/js/[chunkhash].js'
+        chunkFilename: './static/js/[chunkhash].js',
+        assetModuleFilename: 'src/assets/images/[name].[ext]'
     },
     target: "web",
     devServer: {
@@ -20,7 +21,7 @@ module.exports = {
     },
     resolve: {
         modules: ['src', 'node_modules'],
-        extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
+        extensions: ['.tsx', '.ts', '.js', '.jsx', '.json', '.svg']
     },
     module: {
         rules: [
@@ -35,24 +36,9 @@ module.exports = {
                 use: 'babel-loader'
             },
             {
-                test: /\.(png|jpe?g|gif|jpg)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    },
-                ],
-            },
-            {
-                test: /\.(png|jpg|gif)$/i,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 8192,
-                        },
-                    },
-                ],
-            },
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/,
+                type: 'asset/resource'
+             }
         ]
     },
     plugins: [new HtmlWebpackPlugin({

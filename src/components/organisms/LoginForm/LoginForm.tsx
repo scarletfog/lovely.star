@@ -5,6 +5,7 @@ import { Button } from "../../atoms/Button";
 import { InputField } from "../../molecules/InputField";
 import { useSignIn } from "../../../auth/useSignIn";
 import { Hint } from "../../atoms/Hint";
+import unicornHead from "../../../assets/images/unicorn3.svg";
 
 interface LoginFormData {
   username: string;
@@ -70,20 +71,35 @@ export const LoginForm = () => {
   return (
     <>
       <FormProvider {...formMethods}>
-        <Styles.FormWrapper autoComplete="off" onSubmit={formMethods.handleSubmit(onSubmit)} data-testid="LoginForm">
+        <Styles.FormWrapper
+          autoComplete="off"
+          onSubmit={formMethods.handleSubmit(onSubmit)}
+          data-testid="LoginForm"
+        >
           <Styles.ContentWrapper>
             <Styles.Heading>Sign In.</Styles.Heading>
+            <Styles.UnicornWrapper>
+              <Styles.Unicorn src={unicornHead} alt="unicorn_head" />
+            </Styles.UnicornWrapper>
             <Styles.InputsWrapper>
               <Styles.FormRow>
                 <InputField name="username" placeholder="Username" />
               </Styles.FormRow>
               <Styles.FormRow>
-                <InputField name="password" placeholder="Password" type="password" />
+                <InputField
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                />
               </Styles.FormRow>
               <Styles.FormRow>
                 <Button type="submit">Login</Button>
+                {formMethods?.formState?.errors?.root && (
+                  <Hint>
+                    {formMethods?.formState?.errors?.root?.serverCatch.message}
+                  </Hint>
+                )}
               </Styles.FormRow>
-              <Hint>{formMethods?.formState?.errors?.root?.serverCatch.message}</Hint>
             </Styles.InputsWrapper>
           </Styles.ContentWrapper>
         </Styles.FormWrapper>

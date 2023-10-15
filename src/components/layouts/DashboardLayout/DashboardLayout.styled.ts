@@ -5,4 +5,3 @@ export const DashboarContentWrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
