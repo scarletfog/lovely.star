@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FormRow = styled.div`
   display: flex;
-  margin: 20px;
+  margin: ${({ theme }) => theme.spacing.s};
   flex-direction: column;
 `;
 
@@ -23,8 +23,12 @@ export const ContentWrapper = styled.div`
   display: flex;
   padding: 20px;
   border-radius: ${({ theme }) => theme.borderRadius.lg};
-  min-width: 25vw;
+  min-width: 20vw;
   height: 60vh;
+  @media (max-width: 768px) {
+    height: 70vh;
+    min-width: 25vw;
+  }
   display: flex;
   padding: 30px;
   flex-direction: column;
@@ -46,6 +50,19 @@ export const InputsWrapper = styled.div`
 
 export const Heading = styled.h2`
   font-family: Verdana;
-  color: ${({ theme }) => theme.colors.snowBall};
+  color: ${({ theme }) => theme.colors.darkerWave};
   font-size: 2rem;
+`;
+
+export const Unicorn = styled.img`
+  width: 100px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const UnicornWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

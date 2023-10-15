@@ -6,3 +6,7 @@ declare namespace Cypress {
   }
 }
 
+declare module "*.svg" {
+  const content: string;
+  export default content;
+}
